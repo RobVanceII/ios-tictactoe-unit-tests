@@ -9,6 +9,23 @@
 import Foundation
 
 func game(board: GameBoard, isWonBy player: GameBoard.Mark) -> Bool {
+    
+    // Check each column for all three marks being the same player as the parameter to the function
+    for x in 0..<3 {
+        var markCount = 0
+        for y in 0..<3 {
+            if board[(x, y)] == player {
+                // they mark the board at this given location
+                markCount += 1
+            }
+        }
+
+        if markCount == 3 {
+            // They won
+            return true
+        }
+    }
+    
     // Check verticals
     for x in 0..<3 {
         var numMarks = 0
